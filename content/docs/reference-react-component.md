@@ -72,7 +72,7 @@ These methods are called in the following order when an instance of a component 
 
 >Note:
 >
->These methods are considered legacy and you should [avoid them](/blog/2018/03/27/update-on-async-rendering.html) in new code:
+>These methods are considered unsafe and you should [avoid them](/blog/2018/03/27/update-on-async-rendering.html) in new code:
 >
 >- [`UNSAFE_componentWillMount()`](#unsafe_componentwillmount)
 
@@ -88,7 +88,7 @@ An update can be caused by changes to props or state. These methods are called i
 
 >Note:
 >
->These methods are considered legacy and you should [avoid them](/blog/2018/03/27/update-on-async-rendering.html) in new code:
+>These methods are considered unsafe and you should [avoid them](/blog/2018/03/27/update-on-async-rendering.html) in new code:
 >
 >- [`UNSAFE_componentWillUpdate()`](#unsafe_componentwillupdate)
 >- [`UNSAFE_componentWillReceiveProps()`](#unsafe_componentwillreceiveprops)
@@ -343,14 +343,14 @@ A class component becomes an error boundary if it defines this lifecycle method.
 For more details, see [*Error Handling in React 16*](/blog/2017/07/26/error-handling-in-react-16.html).
 
 > Note
-> 
+>
 > Error boundaries only catch errors in the components **below** them in the tree. An error boundary can’t catch an error within itself.
 
 * * *
 
-### Legacy Lifecycle Methods
+### Unsafe Lifecycle Methods
 
-The lifecycle methods below are marked as "legacy". They still work, but we don't recommend using them in the new code. You can learn more about migrating away from legacy lifecycle methods in [this blog post](/blog/2018/03/27/update-on-async-rendering.html).
+The lifecycle methods below are marked as "unsafe". They still work, but we don't recommend using them in the new code. You can learn more about migrating away from unsafe lifecycle methods in [this blog post](/blog/2018/03/27/update-on-async-rendering.html).
 
 ### `UNSAFE_componentWillMount()`
 
@@ -383,7 +383,7 @@ UNSAFE_componentWillReceiveProps(nextProps)
 > If you need to **perform a side effect** (for example, data fetching or an animation) in response to a change in props, use [`componentDidUpdate`](#componentdidupdate) lifecycle instead.
 >
 > For other use cases, [follow the recommendations in this blog post about derived state](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
-> 
+>
 > If you used `componentWillReceiveProps` for **re-computing some data only when a prop changes**, [use a memoization helper instead](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
 >
 > If you used `componentWillReceiveProps` to **"mirror" a prop in the state**, consider either making a component [fully controlled](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) or [fully uncontrolled](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key) instead. Both of these solutions are simpler and lead to less bugs.
